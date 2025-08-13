@@ -24,29 +24,43 @@ const dareChallenges = [
     "表演一个魔术"
 ];
 
-const card = document.getElementById('card');
-const truthBtn = document.getElementById('truthBtn');
-const dareBtn = document.getElementById('dareBtn');
-const cardContent = document.querySelector('.card-content p');
+const contentDisplay = document.getElementById('contentDisplay');
+const truthTitle = document.getElementById('truthTitle');
+const dareTitle = document.getElementById('dareTitle');
+const orTitle = document.getElementById('orTitle');
 
 function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-function flipCard(content) {
-    card.classList.add('flipped');
-    setTimeout(() => {
-        cardContent.textContent = content;
-        card.classList.remove('flipped');
-    }, 300);
+function displayContent(content, mode) {
+    // 移除之前的模式类
+    contentDisplay.classList.remove('truth-mode', 'dare-mode');
+    
+    // 添加新的模式类
+    contentDisplay.classList.add(mode);
+    
+    // 清空内容并添加新内容
+    contentDisplay.innerHTML = `<p class="content-text">${content}</p>`;
 }
 
-truthBtn.addEventListener('click', () => {
+truthTitle.addEventListener('click', () => {
     const question = getRandomItem(truthQuestions);
-    flipCard(question);
+    displayContent(question, 'truth-mode');
 });
 
-dareBtn.addEventListener('click', () => {
+dareTitle.addEventListener('click', () => {
     const challenge = getRandomItem(dareChallenges);
-    flipCard(challenge);
+    displayContent(challenge, 'dare-mode');
+});
+
+orTitle.addEventListener('click', () => {
+    const isTruth = Math.random() < 0.5;
+    if (isTruth) {
+        const question = getRandomItem(truthQuestions);
+        displayContent(question, 'truth-mode');
+    } else {
+        const challenge = getRandomItem(dareChallenges);
+        displayContent(challenge, 'dare-mode');
+    }
 }); 
