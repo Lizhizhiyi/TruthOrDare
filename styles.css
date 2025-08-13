@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Rajdhani', 'Microsoft YaHei', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: radial-gradient(1200px circle at 20% 10%, #1f2937 0%, #111827 55%, #0b0f14 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -38,26 +38,20 @@ body {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.3em;
-    text-shadow: 
-        0 0 10px rgba(52, 152, 219, 0.8),
-        0 0 20px rgba(52, 152, 219, 0.6),
-        0 0 30px rgba(52, 152, 219, 0.4),
-        0 0 40px rgba(52, 152, 219, 0.2),
-        2px 2px 4px rgba(0,0,0,0.3),
-        4px 4px 8px rgba(0,0,0,0.2);
-    background: linear-gradient(45deg, #3498db, #e74c3c, #f39c12, #9b59b6);
+    text-shadow: none;
+    background: linear-gradient(45deg, #22d3ee, #a78bfa, #06b6d4, #9333ea);
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientShift 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+    animation: gradientShift 6s ease-in-out infinite; /* 移除 glow，仅保留更慢的渐变流动 */
     position: relative;
     transform: skew(-15deg);
     transition: transform 0.3s ease;
 }
 
 .line:hover {
-    transform: skew(-15deg) scale(1.1);
+    transform: skew(-15deg) scale(1.05);
 }
 
 .line::before {
@@ -67,15 +61,12 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 3s ease-in-out infinite reverse;
+    color: transparent;
+    -webkit-text-stroke: 6px rgba(255, 255, 255, 0.25);
+    filter: blur(2px);
     z-index: -1;
-    filter: blur(8px);
     transform: skew(-15deg);
+    pointer-events: none;
 }
 
 .line1 {
@@ -114,11 +105,10 @@ body {
 }
 
 .clickable:hover {
-    filter: brightness(1.2) contrast(1.2);
-    text-shadow: 
-        0 0 20px rgba(255, 255, 255, 0.8),
-        0 0 30px rgba(255, 255, 255, 0.6),
-        0 0 40px rgba(255, 255, 255, 0.4);
+    filter: brightness(1.1) contrast(1.05);
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.35),
+        0 0 16px rgba(255, 255, 255, 0.25);
 }
 
 .clickable:active {
@@ -139,19 +129,38 @@ body {
 
 @keyframes glow {
     from {
-        text-shadow: 
-            0 0 10px rgba(52, 152, 219, 0.8),
-            0 0 20px rgba(52, 152, 219, 0.6),
-            0 0 30px rgba(52, 152, 219, 0.4),
-            0 0 40px rgba(52, 152, 219, 0.2);
+        text-shadow:
+            0 0 6px rgba(52, 152, 219, 0.35),
+            0 0 12px rgba(52, 152, 219, 0.25),
+            0 0 18px rgba(52, 152, 219, 0.18),
+            0 0 24px rgba(52, 152, 219, 0.12);
     }
     to {
-        text-shadow: 
-            0 0 20px rgba(231, 76, 60, 0.8),
-            0 0 30px rgba(231, 76, 60, 0.6),
-            0 0 40px rgba(231, 76, 60, 0.4),
-            0 0 50px rgba(231, 76, 60, 0.2);
+        text-shadow:
+            0 0 10px rgba(231, 76, 60, 0.35),
+            0 0 16px rgba(231, 76, 60, 0.25),
+            0 0 22px rgba(231, 76, 60, 0.18),
+            0 0 28px rgba(231, 76, 60, 0.12);
     }
+}
+
+.lightning-overlay {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 9999;
+	background: radial-gradient(1200px circle at 30% 10%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.12) 25%, rgba(255,255,255,0) 60%),
+		linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0));
+	opacity: 0;
+}
+
+@keyframes lightningFlash {
+	0% { opacity: 0; filter: brightness(1); }
+	5% { opacity: 1; filter: brightness(2.2) contrast(1.25); }
+	12% { opacity: 0.45; }
+	18% { opacity: 1; }
+	28% { opacity: 0; }
+	100% { opacity: 0; }
 }
 
 .game-area {
@@ -185,7 +194,7 @@ body {
 .default-message p {
     font-family: 'Rajdhani', sans-serif;
     font-size: 1.5rem;
-    color: #6c757d;
+    color: #9ca3af;
     margin: 0;
     font-weight: 500;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
@@ -194,7 +203,7 @@ body {
 .content-text {
     font-family: 'Rajdhani', sans-serif;
     font-size: 1.5rem;
-    color: #2c3e50;
+    color: #e5e7eb;
     line-height: 1.8;
     margin: 0;
     font-weight: 600;
@@ -202,14 +211,49 @@ body {
     animation: fadeIn 0.8s ease-in-out;
 }
 
+/* 电流式入场动画，用于配合闪电出现内容 */
+.content-text.electric-enter {
+    animation: electricIn 700ms ease-out, fadeIn 0.8s ease-in-out;
+}
+
+@keyframes electricIn {
+    0%   { opacity: 0; filter: blur(3px) brightness(1.6); letter-spacing: 0.2em; }
+    10%  { opacity: 1; filter: blur(1px) brightness(2.0); }
+    20%  { opacity: 0.6; filter: blur(2px) brightness(1.2); }
+    30%  { opacity: 1; filter: blur(0px) brightness(1.8); }
+    40%  { opacity: 0.85; }
+    55%  { opacity: 1; }
+    70%  { opacity: 0.9; }
+    85%  { opacity: 1; }
+    100% { opacity: 1; filter: blur(0) brightness(1); letter-spacing: 0; }
+}
+
+/* 闪电字符逐个闪动效果（文字本体闪动） */
+.lightning-text { white-space: pre-wrap; }
+.lightning-text .bolt {
+    display: inline-block;
+    animation: lightningChar 1200ms ease-out forwards;
+}
+
+@keyframes lightningChar {
+    0%   { opacity: 0; filter: blur(3px) brightness(2.6); text-shadow: 0 0 18px rgba(173,216,255,0.55), 0 0 8px rgba(173,216,255,0.35); }
+    10%  { opacity: 1; filter: blur(1.5px) brightness(2.0); }
+    20%  { opacity: 0.65; filter: blur(2px) brightness(1.3); }
+    35%  { opacity: 1; filter: blur(0.5px) brightness(1.8); }
+    50%  { opacity: 0.8; }
+    65%  { opacity: 1; }
+    80%  { opacity: 0.9; }
+    100% { opacity: 1; filter: blur(0) brightness(1); text-shadow: none; }
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: none;
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: none;
     }
 }
 
