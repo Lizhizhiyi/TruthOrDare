@@ -144,24 +144,7 @@ body {
     }
 }
 
-.lightning-overlay {
-	position: fixed;
-	inset: 0;
-	pointer-events: none;
-	z-index: 9999;
-	background: radial-gradient(1200px circle at 30% 10%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.12) 25%, rgba(255,255,255,0) 60%),
-		linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0));
-	opacity: 0;
-}
-
-@keyframes lightningFlash {
-	0% { opacity: 0; filter: brightness(1); }
-	5% { opacity: 1; filter: brightness(2.2) contrast(1.25); }
-	12% { opacity: 0.45; }
-	18% { opacity: 1; }
-	28% { opacity: 0; }
-	100% { opacity: 0; }
-}
+/* 移除背景闪电样式 */
 
 .game-area {
     max-width: 800px;
@@ -226,6 +209,22 @@ body {
     70%  { opacity: 0.9; }
     85%  { opacity: 1; }
     100% { opacity: 1; filter: blur(0) brightness(1); letter-spacing: 0; }
+}
+
+/* 标题偶发闪动：使 Truth / Or / Dare 偶尔闪烁 */
+.title-flicker {
+    animation: titleFlicker 650ms ease-out;
+}
+
+@keyframes titleFlicker {
+    0%   { opacity: 1; filter: brightness(1); background-position: 0% 50%; }
+    10%  { opacity: 0.55; filter: brightness(2.0); background-position: 12% 48%; }
+    20%  { opacity: 1; filter: brightness(1.1); background-position: 0% 50%; }
+    35%  { opacity: 0.7; filter: brightness(1.6); background-position: 18% 52%; }
+    50%  { opacity: 1; filter: brightness(1.05); background-position: 0% 50%; }
+    70%  { opacity: 0.85; filter: brightness(1.4); background-position: 22% 49%; }
+    85%  { opacity: 1; filter: brightness(1.05); background-position: 0% 50%; }
+    100% { opacity: 1; filter: brightness(1); background-position: 0% 50%; }
 }
 
 /* 闪电字符逐个闪动效果（文字本体闪动） */
