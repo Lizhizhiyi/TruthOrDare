@@ -24,8 +24,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    transform: rotate(-5deg);
+    gap: 3.5rem;
+    transform: rotate(-8deg);
     transform-origin: center;
     width: 50vw;
     margin-left: auto;
@@ -46,12 +46,12 @@ body {
     background-clip: text;
     animation: gradientShift 6s ease-in-out infinite; /* 移除 glow，仅保留更慢的渐变流动 */
     position: relative;
-    transform: skew(-15deg);
+    transform: skew(-24deg);
     transition: transform 0.3s ease;
 }
 
 .line:hover {
-    transform: skew(-15deg) scale(1.05);
+    transform: skew(-24deg) scale(1.05);
 }
 
 .line::before {
@@ -65,38 +65,38 @@ body {
     -webkit-text-stroke: 6px rgba(255, 255, 255, 0.25);
     filter: blur(2px);
     z-index: -1;
-    transform: skew(-15deg);
+    transform: skew(-24deg);
     pointer-events: none;
 }
 
 .line1 {
-    transform: skew(-15deg) translateX(-80px);
+    transform: skew(-24deg) translateX(-28px);
     animation-delay: 0s;
     font-size: 4rem;
 }
 
 .line2 {
-    transform: skew(-15deg) translateX(0px);
+    transform: skew(-24deg) translateX(0px);
     animation-delay: 0.5s;
     font-size: 3rem;
 }
 
 .line3 {
-    transform: skew(-15deg) translateX(80px);
+    transform: skew(-24deg) translateX(28px);
     animation-delay: 1s;
     font-size: 4rem;
 }
 
 .line1:hover {
-    transform: skew(-15deg) translateX(-80px) scale(1.1);
+    transform: skew(-24deg) translateX(-28px) scale(1.1);
 }
 
 .line2:hover {
-    transform: skew(-15deg) translateX(0px) scale(1.1);
+    transform: skew(-24deg) translateX(0px) scale(1.1);
 }
 
 .line3:hover {
-    transform: skew(-15deg) translateX(80px) scale(1.1);
+    transform: skew(-24deg) translateX(28px) scale(1.1);
 }
 
 .clickable {
