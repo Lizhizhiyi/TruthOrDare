@@ -373,27 +373,46 @@ body {
 
 /* 更小屏幕的适配 */
 @media screen and (max-width: 480px) {
+    .container {
+        justify-content: flex-start; /* 将内容推到顶部 */
+        padding-top: 3rem; /* 顶部留出一些空间 */
+    }
+
+    .game-area {
+        flex: 0.7; /* 减少游戏区域的占比 */
+        margin-bottom: 1rem;
+    }
+
+    .artistic-title {
+        flex: 0.3; /* 增加标题区域的占比 */
+        gap: 1.2rem; /* 减少标题内部间距 */
+        margin-bottom: 1rem;
+    }
+
     .line {
-        font-size: 2rem;
-        letter-spacing: 0.15em;
+        font-size: 3rem; /* 更大的基础字体 */
+        letter-spacing: 0.12em; /* 减少字母间距使其更紧凑 */
     }
 
     .line1 {
-        font-size: 2.5rem;
+        font-size: 4.2rem; /* 显著增大 Truth */
+        transform: skew(-15deg) translateX(-8px);
     }
 
     .line2 {
-        font-size: 1.8rem;
+        font-size: 3.2rem; /* 增大 Or */
+        transform: skew(-15deg) translateX(0);
     }
 
     .line3 {
-        font-size: 2.5rem;
+        font-size: 4.2rem; /* 显著增大 Dare */
+        transform: skew(-15deg) translateX(8px);
     }
 
     .content-display {
-        font-size: 1.4rem;
-        padding: 1.5rem;
-        min-height: 120px;
+        font-size: 1.6rem;
+        padding: 1.2rem;
+        min-height: 100px; /* 减小最小高度 */
     }
 }
 
