@@ -16,6 +16,10 @@ body {
 .container {
     text-align: center;
     padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .artistic-title {
@@ -359,6 +363,33 @@ body {
     .line3 {
         font-size: 2.5rem;
     }
+
+    .content-display {
+        font-size: 1.4rem;
+        padding: 1.5rem;
+        min-height: 120px;
+    }
+}
+
+.game-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.content-display {
+    font-size: 1.8rem;
+    margin: 1rem;
+    padding: 2rem;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
 }
 
 .btn:active {
