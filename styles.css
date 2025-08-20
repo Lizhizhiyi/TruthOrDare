@@ -27,7 +27,8 @@ body {
     gap: 3.5rem;
     transform: rotate(-8deg);
     transform-origin: center;
-    width: 50vw;
+    width: 90vw; /* 修改为更大的宽度，适应移动端 */
+    max-width: 800px; /* 添加最大宽度限制 */
     margin-left: auto;
     margin-right: auto;
 }
@@ -44,10 +45,12 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientShift 6s ease-in-out infinite; /* 移除 glow，仅保留更慢的渐变流动 */
+    animation: gradientShift 6s ease-in-out infinite;
     position: relative;
     transform: skew(-24deg);
     transition: transform 0.3s ease;
+    width: 100%; /* 确保文字不会溢出 */
+    padding: 0 1rem; /* 添加一些内边距 */
 }
 
 .line:hover {
@@ -285,6 +288,77 @@ body {
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .artistic-title {
+        gap: 2rem;
+        transform: rotate(-5deg); /* 减小旋转角度 */
+    }
+
+    .line {
+        font-size: 2.5rem; /* 减小字体大小 */
+        letter-spacing: 0.2em; /* 减小字母间距 */
+        transform: skew(-15deg); /* 减小倾斜角度 */
+    }
+
+    .line1 {
+        font-size: 3rem;
+        transform: skew(-15deg) translateX(-14px);
+    }
+
+    .line2 {
+        font-size: 2rem;
+        transform: skew(-15deg) translateX(0px);
+    }
+
+    .line3 {
+        font-size: 3rem;
+        transform: skew(-15deg) translateX(14px);
+    }
+
+    .line1:hover {
+        transform: skew(-15deg) translateX(-14px) scale(1.05);
+    }
+
+    .line2:hover {
+        transform: skew(-15deg) translateX(0px) scale(1.05);
+    }
+
+    .line3:hover {
+        transform: skew(-15deg) translateX(14px) scale(1.05);
+    }
+
+    .content-display {
+        font-size: 1.2rem; /* 调整内容显示区域的字体大小 */
+        margin: 1rem;
+        padding: 1rem;
+    }
+}
+
+/* 更小屏幕的适配 */
+@media screen and (max-width: 480px) {
+    .line {
+        font-size: 2rem;
+        letter-spacing: 0.15em;
+    }
+
+    .line1 {
+        font-size: 2.5rem;
+    }
+
+    .line2 {
+        font-size: 1.8rem;
+    }
+
+    .line3 {
+        font-size: 2.5rem;
+    }
 }
 
 .btn:active {
