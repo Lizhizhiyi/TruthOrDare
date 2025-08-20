@@ -352,6 +352,25 @@ body {
     }
 }
 
+.hint-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Microsoft YaHei', sans-serif;
+    animation: pulse 2s infinite;
+    font-size: 1.5rem;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0.4;
+    }
+}
+
 /* 更小屏幕的适配 */
 @media screen and (max-width: 480px) {
     .line {

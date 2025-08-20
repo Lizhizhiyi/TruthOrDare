@@ -208,7 +208,9 @@ const contentDisplay = document.getElementById('contentDisplay');
 const truthTitle = document.getElementById('truthTitle');
 const dareTitle = document.getElementById('dareTitle');
 const orTitle = document.getElementById('orTitle');
-// 移除背景闪电
+
+// 初始化显示提示文字
+contentDisplay.innerHTML = '<p class="hint-text">请点击标题开始...</p>';
 
 function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
