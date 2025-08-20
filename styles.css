@@ -298,36 +298,38 @@ body {
 @media screen and (max-width: 768px) {
     .container {
         padding: 1rem;
+        gap: 1rem; /* 减少整体间距 */
     }
 
     .artistic-title {
-        gap: 2rem;
+        gap: 1.5rem; /* 减少标题内部间距 */
         transform: rotate(-5deg); /* 减小旋转角度 */
+        margin-bottom: 1rem; /* 减少底部边距 */
     }
 
     .line {
-        font-size: 2.5rem; /* 减小字体大小 */
-        letter-spacing: 0.2em; /* 减小字母间距 */
+        font-size: 3.2rem; /* 增大字体大小 */
+        letter-spacing: 0.15em; /* 稍微减小字母间距 */
         transform: skew(-15deg); /* 减小倾斜角度 */
     }
 
     .line1 {
-        font-size: 3rem;
-        transform: skew(-15deg) translateX(-14px);
+        font-size: 3.8rem; /* 增大 Truth 字体 */
+        transform: skew(-15deg) translateX(-10px);
     }
 
     .line2 {
-        font-size: 2rem;
+        font-size: 2.8rem; /* 增大 Or 字体 */
         transform: skew(-15deg) translateX(0px);
     }
 
     .line3 {
-        font-size: 3rem;
-        transform: skew(-15deg) translateX(14px);
+        font-size: 3.8rem; /* 增大 Dare 字体 */
+        transform: skew(-15deg) translateX(10px);
     }
 
     .line1:hover {
-        transform: skew(-15deg) translateX(-14px) scale(1.05);
+        transform: skew(-15deg) translateX(-10px) scale(1.05);
     }
 
     .line2:hover {
@@ -335,13 +337,18 @@ body {
     }
 
     .line3:hover {
-        transform: skew(-15deg) translateX(14px) scale(1.05);
+        transform: skew(-15deg) translateX(10px) scale(1.05);
+    }
+
+    .game-area {
+        margin-bottom: 1rem; /* 减少游戏区域的底部边距 */
     }
 
     .content-display {
-        font-size: 1.2rem; /* 调整内容显示区域的字体大小 */
-        margin: 1rem;
+        font-size: 1.6rem; /* 增大内容字体 */
+        margin: 0.5rem;
         padding: 1rem;
+        min-height: 120px;
     }
 }
 
